@@ -3,6 +3,9 @@ import { Link,  useLocation, useNavigate } from 'react-router-dom'
 import { items } from './Data'
 import { useState } from 'react'
 import { FaShoppingCart } from "react-icons/fa";
+import { IoMdHome } from "react-icons/io";
+import logo from '../assets/logo.webp';
+
 function Navbar({setdata,cart}) {
   // console.log(useLocation())
   const location=useLocation()
@@ -27,9 +30,14 @@ const handlesubmit=(e)=>{
    <>
      <header className='sticky-top'>
       <div className="nav-bar">
-        <Link to={'/'} className="brand">E-cart</Link>
 
-        <form onSubmit={handlesubmit} className="search-bar">
+        <div className='flex space-x-10 items-center'>
+        <img src={logo} alt="Logo" className='h-9 w-9 rounded-full ml-5'/>
+        
+
+        <Link to={'/'} className="brand"><IoMdHome size={32}/></Link>
+        </div>
+        <form onSubmit={handlesubmit} className="search-bar justify-center flex">
           <input className='text-black px-2'
           value={searchterm}
           onChange={(e)=>setsearchterm(e.target.value)}
